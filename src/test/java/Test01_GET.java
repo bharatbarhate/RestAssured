@@ -37,4 +37,24 @@ public class Test01_GET {
 			.body("data.id[0]",equalTo(7));
 
 	}
+	@Test
+	void test_03()
+	{
+		given().
+			get("https://reqres.in/api/users?page=2").
+		then()
+			.statusCode(200)
+			.body("data.email[0]",equalTo("michael.lawson@reqres.in"));
+
+	}
+	@Test
+	void test_04()
+	{
+		given().
+			get("https://reqres.in/api/users?page=2").
+		then()
+			.statusCode(200)
+			.body("data.avatar[0]",equalTo("https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg"));
+
+	}
 }
